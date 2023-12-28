@@ -5,7 +5,7 @@ function App() {
   const [data, setData] = useState([{}]);
 
   useEffect(() => {
-    fetch("/users")
+    fetch("/expense")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
@@ -15,12 +15,13 @@ function App() {
     <div>
       <h1>Hello, React!</h1>
       <div>
-        {typeof data.users === "undefined" ? (
+        {typeof data === "undefined" ? (
           <p>Loading...</p>
         ) : (
-          data.users.map((user) => (
-            <p key={user.id}>
-              {user.id}.{user.name}
+          data.map((expense) => (
+            <p key={expense.id}>
+              {expense.id}.{expense.category} - {expense.amount} (
+              {expense.created_date})
             </p>
           ))
         )}
