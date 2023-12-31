@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { format } from "date-fns";
 
 function App() {
-  const [data, setData] = useState([{}]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("/expense")
@@ -15,15 +16,21 @@ function App() {
     <div>
       <h1>Hello, React!</h1>
       <div>
-        {typeof data === "undefined" ? (
+        {data === undefined ? (
           <p>Loading...</p>
         ) : (
-          data.map((expense) => (
-            <p key={expense.id}>
-              {expense.id}.{expense.category} - {expense.amount} (
-              {expense.created_date})
-            </p>
-          ))
+          <ul>
+            {data.map((expense) => {
+              const createdDate = new Date(expense.created_date);
+              console.log(createdDate);
+              return (
+                <li key={expense.id}>
+                  {expense.id}. {expense.category} - {expense.amount} (
+                  {format(createdDate, "MMM/dd/yyyy")})
+                </li>
+              );
+            })}
+          </ul>
         )}
       </div>
     </div>
