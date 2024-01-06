@@ -27,6 +27,8 @@ function App() {
           <ul>
             {data.map((expense) => {
               const createdDate = new Date(expense.created_date);
+              createdDate.setDate(createdDate.getDate() + 1);
+
               return (
                 <li key={expense.id}>
                   {expense.id}. {expense.category} - {expense.amount} (
