@@ -7,17 +7,21 @@ import ExpenseForm from "./components/expenseForm/ExpenseForm";
 function App() {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch("/get_expense")
+  async function fetchData() {
+    await fetch("/get_expense")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
     <div>
       <h1>Hello, React!</h1>
-      <ExpenseForm />
+      <ExpenseForm fetchData={fetchData} />
 
       {/* Below should be componentized */}
       <div>

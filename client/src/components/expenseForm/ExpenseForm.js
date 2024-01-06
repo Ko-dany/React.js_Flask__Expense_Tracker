@@ -42,6 +42,7 @@ const ExpenseForm = (props) => {
     const data = { enteredCategory, enteredAmount, enteredDate };
 
     postData(url, data).then((response) => console.log(response));
+    props.fetchData();
   };
 
   return (

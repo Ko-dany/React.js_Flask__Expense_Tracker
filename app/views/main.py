@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, redirect
 from datetime import datetime
 import json
 
@@ -57,7 +57,7 @@ def post_expense():
         db.session.commit()
 
         print("POST TRY is successfully executed!")
-        return jsonify({"message": "Expense added successfully!"})
+        return redirect("get_expense")
     
     except Exception as e:
         return jsonify({"error":str(e)})
