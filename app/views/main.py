@@ -34,11 +34,12 @@ def post_expense():
         print("POST TRY is executed!")
 
         data = request.get_data()
+
+        # Decode the data from bytes to dictionary data type
         encoded_data = json.loads(data.decode("utf8"))
 
         print(f"DATA: {encoded_data}")
         print(type(encoded_data))
-        print(f"{category} | {amount} | {date}")
 
         category = encoded_data["enteredCategory"]
         print(f"{type(category)}")
@@ -46,7 +47,7 @@ def post_expense():
         amount = float(encoded_data["enteredAmount"])
         print(f"{type(amount)}")
 
-        date = datetime.strptime(encoded_data["enteredDate"])
+        date = datetime.strptime(encoded_data["enteredDate"], '%Y-%m-%d')
         print(f"{type(date)}")
 
         new_expense = Expense(category=category,amount=amount,created_date=date) 
