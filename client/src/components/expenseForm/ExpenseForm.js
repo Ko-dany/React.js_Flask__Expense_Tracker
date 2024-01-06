@@ -16,6 +16,12 @@ const ExpenseForm = (props) => {
     setEnteredDate(e.target.value);
   };
 
+  const inputResetHandler = () => {
+    setEnteredCategory("");
+    setEnteredAmount("");
+    setEnteredDate("");
+  };
+
   async function postData(url = "", data = {}) {
     const response = await fetch(url, {
       method: "POST",
@@ -34,15 +40,16 @@ const ExpenseForm = (props) => {
       `Data input => ${enteredCategory} / ${enteredAmount} / ${enteredDate}`
     );
 
-    console.log(
-      `Data types => ${typeof enteredCategory} / ${typeof enteredAmount} / ${typeof enteredDate}`
-    );
-
     const url = "http://127.0.0.1:5000/post_expense";
-    const data = { enteredCategory, enteredAmount, enteredDate };
+    const data = {
+      enteredCategory: enteredCategory.trim(),
+      enteredAmount: enteredAmount.trim(),
+      enteredDate: enteredDate,
+    };
 
     postData(url, data).then((response) => console.log(response));
     props.fetchData();
+    inputResetHandler();
   };
 
   return (

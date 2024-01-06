@@ -13,7 +13,7 @@ def create_app():
     app.debug = True
     app.config.from_object(config)
 
-    # ORM
+    # Set up for Object-Relational Mapping
     db.init_app(app)
     migrate.init_app(app, db)
     from . import models

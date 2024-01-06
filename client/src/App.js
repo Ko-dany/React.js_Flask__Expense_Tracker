@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState([]);
 
   async function fetchData() {
-    await fetch("/get_expense")
+    const response = await fetch("/get_expense")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log(err));
