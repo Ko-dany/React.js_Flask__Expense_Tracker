@@ -53,35 +53,41 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler} method="Post">
-      <div className="expense_form_controls">
-        <div className="expense_form_group">
-          <label>Category</label>
-          <input
-            type="text"
-            value={enteredCategory}
-            onChange={categoryHandler}
-          ></input>
+    <div className="new-expense">
+      <form onSubmit={submitHandler} method="Post">
+        <div className="expense_form_controls">
+          <div className="expense_form_group">
+            <label>Category</label>
+            <input
+              type="text"
+              value={enteredCategory}
+              onChange={categoryHandler}
+            ></input>
+          </div>
+          <div className="expense_form_group">
+            <label>Amount</label>
+            <input
+              type="text"
+              min="0.01"
+              step="0.01"
+              value={enteredAmount}
+              onChange={amountHandler}
+            ></input>
+          </div>
+          <div className="expense_form_group">
+            <label>Date</label>
+            <input
+              type="date"
+              value={enteredDate}
+              onChange={dateHandler}
+            ></input>
+          </div>
         </div>
-        <div className="expense_form_group">
-          <label>Amount</label>
-          <input
-            type="text"
-            min="0.01"
-            step="0.01"
-            value={enteredAmount}
-            onChange={amountHandler}
-          ></input>
+        <div className="expense_form_action">
+          <button type="submit">Add Expense</button>
         </div>
-        <div className="expense_form_group">
-          <label>Date</label>
-          <input type="date" value={enteredDate} onChange={dateHandler}></input>
-        </div>
-      </div>
-      <div className="expense_form_actions">
-        <button type="submit">Add Expense</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

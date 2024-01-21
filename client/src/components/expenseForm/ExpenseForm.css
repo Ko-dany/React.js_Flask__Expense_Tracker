@@ -1,0 +1,64 @@
+.new-expense {
+  background-color: #fff7d5;
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 40rem;
+  max-width: 95%;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.new-expense button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #d3c794;
+  background-color: #d3c794;
+  color: white;
+  border-radius: 12px;
+}
+
+.new-expense button:hover,
+.new-expense button:active {
+  background-color: #e9dda8;
+  border-color: #e9dda8;
+}
+
+.new-expense button.alternative {
+  color: #878062;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.new-expense button.alternative:hover,
+.new-expense button.alternative:active {
+  background-color: #aba37f;
+}
+
+.expense_form_controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.expense_form_group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.expense_form_group input {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.expense_form_action {
+  text-align: right;
+}

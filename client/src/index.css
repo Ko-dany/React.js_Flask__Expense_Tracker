@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+.expense_tracker_header {
+  margin: 50px;
+  font-size: 3rem;
+  font-weight: lighter;
+  text-align: center;
+  cursor: default;
+}
+
+/* .expense_tracker_header:hover {
+  font-size: 3.1rem;
+} */
