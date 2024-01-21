@@ -13,9 +13,10 @@ html {
 
 body {
   margin: 0;
+  background-color: #fffcef;
 }
 
-.expense_tracker_header {
+.expense-tracker-header {
   margin: 50px;
   font-size: 3rem;
   font-weight: lighter;
@@ -23,6 +24,14 @@ body {
   cursor: default;
 }
 
-/* .expense_tracker_header:hover {
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* .expense-tracker-header:hover {
   font-size: 3.1rem;
 } */

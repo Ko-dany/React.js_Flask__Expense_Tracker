@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="expense_tracker_header">Expense Tracker</h1>
+      <h1 className="expense-tracker-header">Expense Tracker</h1>
       <ExpenseForm fetchData={fetchData} />
       <div>
         {data === undefined ? (
