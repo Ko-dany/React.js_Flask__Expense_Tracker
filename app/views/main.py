@@ -61,3 +61,15 @@ def post_expense():
     
     except Exception as e:
         return jsonify({"error":str(e)})
+
+
+
+@bp.route('/edit/<int:index>', methods=['POST'])
+def edit(index):
+    if index:
+        print("I got index bro")
+    return print("Edit link works!")
+
+@bp.route('/delete', methods=['POST'])
+def delete(index):
+    return print("Delete link works!")

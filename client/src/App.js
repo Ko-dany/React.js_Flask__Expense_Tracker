@@ -22,8 +22,6 @@ function App() {
     <div>
       <h1>Hello, React!</h1>
       <ExpenseForm fetchData={fetchData} />
-
-      {/* Below should be componentized */}
       <div>
         {data === undefined ? (
           <p>Loading...</p>
@@ -34,12 +32,14 @@ function App() {
               createdDate.setDate(createdDate.getDate() + 1);
 
               return (
-                <ExpenseItem
-                  keys={expense.id}
-                  category={expense.category}
-                  amount={expense.amount}
-                  createdDate={createdDate}
-                />
+                <li key={expense.id}>
+                  <ExpenseItem
+                    id={expense.id}
+                    category={expense.category}
+                    amount={expense.amount}
+                    createdDate={createdDate}
+                  />
+                </li>
               );
             })}
           </ul>

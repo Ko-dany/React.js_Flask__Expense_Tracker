@@ -3,20 +3,20 @@ import { format } from "date-fns";
 
 function ExpenseItem(props) {
   return (
-    <li key={props.keys}>
+    <div>
       <div>
-        {props.keys}. {props.category} - {props.amount} (
+        {props.id}. {props.category} - {props.amount} (
         {format(props.createdDate, "MMM/dd/yyyy")})
       </div>
       <div>
-        <a href="#" rel="noopener noreferrer">
+        <a href={`/edit/${props.id}`} rel="noopener noreferrer">
           Modify
         </a>
-        <a href="#" rel="noopener noreferrer">
+        <a href="/delete" rel="noopener noreferrer">
           Delete
         </a>
       </div>
-    </li>
+    </div>
   );
 }
 
