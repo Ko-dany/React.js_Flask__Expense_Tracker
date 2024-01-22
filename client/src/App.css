@@ -1,0 +1,27 @@
+.expense-tracker-header {
+  margin: 50px;
+  font-size: 3rem;
+  font-weight: lighter;
+  text-align: center;
+  cursor: default;
+}
+
+/* .expense-tracker-header:hover {
+    font-size: 3.1rem;
+  } */
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.expenses {
+  padding: 1rem;
+  background-color: #b9a969;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+}

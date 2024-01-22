@@ -1,8 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-import ExpenseForm from "./components/expenseForm/ExpenseForm";
-import ExpenseItem from "./components/expenseItems/ExpenseItem";
+import "./App.css";
+import Card from "./components/Wrapper/Card";
+import ExpenseForm from "./components/ExpenseForm/ExpenseForm";
+import ExpenseItem from "./components/ExpenseItem/expenseItem";
 
 function App() {
   const [data, setData] = useState([]);
@@ -10,7 +12,10 @@ function App() {
   async function fetchData() {
     const response = await fetch("/get_expense")
       .then((res) => res.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -22,7 +27,7 @@ function App() {
     <div>
       <h1 className="expense-tracker-header">Expense Tracker</h1>
       <ExpenseForm fetchData={fetchData} />
-      <div>
+      <Card className="expenses">
         {data === undefined ? (
           <p>Loading...</p>
         ) : (
@@ -44,7 +49,7 @@ function App() {
             })}
           </ul>
         )}
-      </div>
+      </Card>
     </div>
   );
 }
