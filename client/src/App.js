@@ -13,7 +13,11 @@ function App() {
     const response = await fetch("/get_expense")
       .then((res) => res.json())
       .then((data) => {
+        // const sortedData = data.sort(
+        //   (a, b) => new Date(a.created_date) - new Date(b.created_date)
+        // );
         setData(data);
+        console.log("Initial Data");
         console.log(data);
       })
       .catch((err) => console.log(err));

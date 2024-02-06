@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
+import moment from "moment";
 
 import "./ExpenseItem.css";
 import Card from "../Wrapper/Card";
 
 function ExpenseItem(props) {
+  const createdDate = new Date(props.createdDate);
   return (
     <div>
       <Card className="expense-item">
@@ -13,7 +15,8 @@ function ExpenseItem(props) {
             {format(props.createdDate, "MMMM")}
           </div>
           <div className="expense-date__year">
-            {format(props.createdDate, "yyyy")}
+            {moment(createdDate).format("YYYY")}
+            {/* {format(createdDate, "yyyy")} */}
           </div>
           <div className="expense-date__day">
             {format(props.createdDate, "dd")}

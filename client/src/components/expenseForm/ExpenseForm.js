@@ -5,7 +5,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = (props) => {
   const intialValues = { category: "", amount: "", date: "" };
   //'0001-01-01'
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState(intialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -18,26 +18,32 @@ const ExpenseForm = (props) => {
   const validateForm = (values) => {
     let errors = {};
     const today = new Date();
-    const selectedDateString = values.date;
-    const selectedDate = new Date(selectedDateString);
+    let selectedDate;
 
     // Category must be at least 2 characters long
     // Amount must be numeric value (limit?)
-    // Date must be between 2000 year today + 1
+    // Date must be between 2000 year today + 1.
 
     if (values.category.length < 2) {
       errors.category = "Category must be at least 2 characters long.";
-      console.log("Category is not valid");
     }
 
     if (values.amount <= 0) {
       errors.amount = "Amount must be more than zero.";
-      console.log("Amount is not valid");
     }
 
-    if (selectedDate > today) {
-      errors.date = "Date cannot be greater than today.";
-      console.log("Date is not valid");
+    const selectedDateString = values.date;
+
+    if (selectedDateString.length === 0) {
+      errors.date = "Please select a date.";
+    } else {
+      selectedDate = new Date(selectedDateString);
+
+      if (selectedDate > today) {
+        errors.date = "Date cannot be after today.";
+      } else if (selectedDate < new Date("1900-01-01")) {
+        errors.date = "Date cannot be before 1900.";
+      }
     }
 
     return errors;
@@ -95,7 +101,11 @@ const ExpenseForm = (props) => {
               name="category"
               value={formValues.category}
               onChange={onChangeHandler}
+              className={formErrors.category && "input_error"}
             ></input>
+            {formErrors.category && (
+              <span className="error">{formErrors.category}</span>
+            )}
           </div>
           <div className="expense_form_group">
             <label>Amount</label>
@@ -107,7 +117,11 @@ const ExpenseForm = (props) => {
               step="0.01"
               value={formValues.amount}
               onChange={onChangeHandler}
+              className={formErrors.amount && "input_error"}
             ></input>
+            {formErrors.amount && (
+              <span className="error">{formErrors.amount}</span>
+            )}
           </div>
           <div className="expense_form_group">
             <label>Date</label>
@@ -117,7 +131,11 @@ const ExpenseForm = (props) => {
               name="date"
               value={formValues.date}
               onChange={onChangeHandler}
+              className={formErrors.date && "input_error"}
             ></input>
+            {formErrors.date && (
+              <span className="error">{formErrors.date}</span>
+            )}
           </div>
         </div>
         <div className="expense_form_action">

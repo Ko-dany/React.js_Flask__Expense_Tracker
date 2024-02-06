@@ -45,9 +45,15 @@
   text-align: left;
 }
 
+.expense_form_group {
+  display: flex;
+  flex-direction: column;
+}
+
 .expense_form_group label {
   font-weight: bold;
   margin-bottom: 0.5rem;
+  margin-left: 0.2rem;
   display: block;
 }
 
@@ -58,6 +64,18 @@
   border: 1px solid #ccc;
   width: 20rem;
   max-width: 100%;
+}
+
+.error {
+  margin-top: 0.5rem;
+  margin-left: 0.2rem;
+  color: rgb(212, 14, 14);
+  font-size: 0.9rem;
+  letter-spacing: -0.5px;
+}
+
+.input_error {
+  border: 1px solid rgb(212, 14, 14) !important;
 }
 
 .expense_form_action {
