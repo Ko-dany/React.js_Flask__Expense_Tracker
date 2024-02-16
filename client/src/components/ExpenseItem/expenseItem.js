@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+//import React, { useState } from "react";
 import { format } from "date-fns";
 import moment from "moment";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./ExpenseItem.css";
 import Card from "../Wrapper/Card";
 
 function ExpenseItem(props) {
   const createdDate = new Date(props.createdDate);
+
+  async function postOptionData(url = "", data = "") {
+    const response = await fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
+
+  const selectOptions = () => {
+    // const url = `http://127.0.0.1:5000//edit/${id}`;
+  };
+
   return (
     <div>
       <Card className="expense-item">
@@ -29,20 +47,16 @@ function ExpenseItem(props) {
           </div>
         </div>
         <div>
-          <a
-            className="expense-item__action"
-            href={`/edit/${props.id}`}
-            rel="noopener noreferrer"
-          >
-            Modify
-          </a>
-          <a
-            className="expense-item__action"
-            href="/delete"
-            rel="noopener noreferrer"
-          >
-            Delete
-          </a>
+          {/* <form>
+            <button type="submit" name="edit">
+              Edit
+            </button>
+          </form>
+          <form>
+            <button type="submit" name="delete">
+              Delete
+            </button>
+          </form> */}
         </div>
       </Card>
     </div>

@@ -52,7 +52,7 @@ const ExpenseForm = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     setFormErrors(validateForm(formValues));
-    console.log(formValues);
+    // console.log(formValues);
     setIsSubmitted(true);
   };
 
@@ -75,7 +75,7 @@ const ExpenseForm = (props) => {
       enteredDate: formValues.date,
     };
 
-    console.log(data);
+    // console.log(data);
 
     postData(url, data).then((response) => console.log(response));
     props.fetchData();
@@ -85,7 +85,7 @@ const ExpenseForm = (props) => {
     if (Object.keys(formErrors).length === 0 && isSubmitted) {
       submitForm();
     } else {
-      console.log(formErrors);
+      // console.log(formErrors);
     }
   }, [formErrors]);
 

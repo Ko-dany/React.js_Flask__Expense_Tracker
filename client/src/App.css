@@ -1,14 +1,11 @@
 .expense-tracker-header {
   margin: 50px;
-  font-size: 3rem;
-  font-weight: lighter;
+  font-size: 3.3rem;
+  font-weight: 300;
   text-align: center;
+  text-transform: uppercase;
   cursor: default;
 }
-
-/* .expense-tracker-header:hover {
-    font-size: 3.1rem;
-  } */
 
 ul {
   padding: 0;

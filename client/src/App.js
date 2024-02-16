@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Wrapper/Card";
 import ExpenseForm from "./components/ExpenseForm/ExpenseForm";
-import ExpenseItem from "./components/ExpenseItem/expenseItem";
+import ExpenseItem from "./components/ExpenseItem/ExpenseItem";
 
 function App() {
   const [data, setData] = useState([]);
@@ -13,12 +13,12 @@ function App() {
     const response = await fetch("/get_expense")
       .then((res) => res.json())
       .then((data) => {
-        // const sortedData = data.sort(
-        //   (a, b) => new Date(a.created_date) - new Date(b.created_date)
-        // );
-        setData(data);
-        console.log("Initial Data");
-        console.log(data);
+        const sortedData = data.sort(
+          (a, b) => new Date(b.created_date) - new Date(a.created_date)
+        );
+        setData(sortedData);
+        // console.log("Initial Data");
+        // console.log(data);
       })
       .catch((err) => console.log(err));
   }
